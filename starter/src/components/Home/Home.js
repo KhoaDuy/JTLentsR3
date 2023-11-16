@@ -1,4 +1,4 @@
-import ListBooks from "../Bookshefts/ListBooks/ListBooks";
+import ListBooks from "../Bookshelves/ListBooks/ListBooks";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAll }from "../../BooksAPI"

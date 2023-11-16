@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SearchBookResult from "../SearchBookResult/SearchBookResult";
+import SearchBookResult from "../SearchBookResults/SearchBookResults";
 import { Link } from "react-router-dom";
 import "../SearchBookBar/SearchBookBar.css";
 function SearchBookBar(){

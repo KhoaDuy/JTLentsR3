@@ -1,12 +1,13 @@
-import BooksheftsBook from "./BooksheftsBook/BooksheftsBook";
+import BooksheftsBook from "./BookshelvesBook/BookshelvesBook";
+import BooksheftsTitle from "./BookshelvesTitle/BookshelvesTitle";
 
 function Bookshefts({data,setter}){
 
     return (
         <div className="bookshelf">
-                <h2 className="bookshelf-title">{data.title}</h2>
+              <BooksheftsTitle title={data.title} />
               <BooksheftsBook data={data} setter={setter} />
-              </div>
+        </div>
     )
 }
 export default Bookshefts

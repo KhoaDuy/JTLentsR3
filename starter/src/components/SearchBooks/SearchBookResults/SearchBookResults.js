@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { search } from "../../../BooksAPI";
 import Books from "../../Books/Books";
-import "./SearchBookResult.css";
+import "../SearchBookResults/SearchBookResults.css";
 function SearchBookResult({ title, numberOfBooks }) {
   const [books, setBooks] = useState([]);
 
