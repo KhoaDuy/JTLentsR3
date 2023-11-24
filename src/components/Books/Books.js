@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import BooksAPI, { getAll, update } from "../../BooksAPI";
 import '../Books/Books.css';
 import "../Bookshelves/Bookshelves";
-function Books({ search, data, setter }) {
+function Books({  data, setter }) {
     const [books, setBooks] = useState([]);
+
+    console.log("BOoks",data);
 
     const handleShelfChange = (book, newShelf) => {
         update(book, newShelf)
@@ -15,10 +17,12 @@ function Books({ search, data, setter }) {
                 console.log(error);
             });
     };
-    const bookShelf = search != null ? search : books.filter((book) => book.shelf === null);
+
+    const renderData = Array.isArray(data) ? data : data.books
+
     return (
         <>
-            {data && data.books && data.books.map((book) => (
+            {renderData.map((book) => (
                 <div key={book.id}>
                     <div className="book">
                         <div className="book-top">

@@ -6,14 +6,12 @@ function SearchBookResult({ title, numberOfBooks }) {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
-  
-    if (title !== "") {
+    if (title) {
       search(title, numberOfBooks)
         .then((res) => {
-          if (isMounted) {
-            setBooks(res);
-          }
+          if (!res) return;
+          console.log(res);
+          setBooks(res);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -21,17 +19,15 @@ function SearchBookResult({ title, numberOfBooks }) {
     } else {
       setBooks([]);
     }
-  
-    return () => {
-      isMounted = false;
-    };
-  }, [title, numberOfBooks]);
-  
+
+    
+  }, [title]);
+
   return (
     <div className="search-books-results">
       <ol className="books-grid">
-        {books && books.length > 0 ? (
-          <Books search={books} shelf="none" ></Books>
+        {books.length > 0 ? (
+          <Books data={books} shelf="none" ></Books>
         ) : (
           <p>No books found.</p>
         )}
